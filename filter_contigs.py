@@ -1,6 +1,3 @@
-###################################
-# Python
-###################################
 import os
 import sys
 from itertools import groupby
