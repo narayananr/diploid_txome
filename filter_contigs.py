@@ -1,6 +1,15 @@
+###################################
+# Python
+###################################
 import os
 import sys
 from itertools import groupby
+
+argv = sys.argv
+infile = argv[1]
+print infile.split(".fa")[0]
+outfile = "%s.no_contigs.fa" % infile.split(".fa")[0]
+print outfile
 
 def write_60(line, oF, forceLast):
     """
@@ -22,7 +31,7 @@ def write_60(line, oF, forceLast):
 
 def fasta_iter(fasta_name):
     """
-    given a fasta file. yield tuples of header, sequence
+    given a fasta file. yield tuples of header, length of sequence
     """
     fh = open(fasta_name)
     # ditch the boolean (x[0]) and just keep the header or sequence since
@@ -41,10 +50,10 @@ chrs.append("X")
 chrs.append("Y")
 chrs.append("MT")
 
-inp_genome = "genome_with_contigs.fa"
-out_genome ="genome_without_contigs.fa"
-ofh = open(out_genome,"w")
-sIter = fasta_iter(inp_genome)
+#infile = "genome_with_contigs.fa"
+#outfile ="genome_without_contigs.fa"
+ofh = open(outfile,"w")
+sIter = fasta_iter(infile)
 for id, seq in sIter:
      print id
      chr = id.split()[0]
