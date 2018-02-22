@@ -1,6 +1,3 @@
-###################################
-# Python
-###################################
 import os
 import sys
 from itertools import groupby
@@ -25,7 +22,7 @@ def write_60(line, oF, forceLast):
 
 def fasta_iter(fasta_name):
     """
-    given a fasta file. yield tuples of header, length of sequence
+    given a fasta file. yield tuples of header, sequence
     """
     fh = open(fasta_name)
     # ditch the boolean (x[0]) and just keep the header or sequence since
